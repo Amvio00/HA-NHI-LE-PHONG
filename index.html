@@ -680,25 +680,17 @@
     </div>
 </section>
             
-    <!-- Thẻ iframe ẩn để nhận dữ liệu gửi form không bị nhảy trang -->
-<iframe name="wish_hidden_iframe" id="wish_hidden_iframe" style="display:none;"></iframe>
-
-<!-- Nơi chứa nội dung file guestbook.html -->
-<div id="guestbook-container"></div>
-
-<script>
-    // Tự động tải nội dung từ file guestbook.html vào trang chính
-    fetch('guestbook.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('guestbook-container').innerHTML = data;
-            // Làm mới hiệu ứng cuộn AOS (nếu web bạn có dùng)
-            if (typeof AOS !== 'undefined') {
-                AOS.refresh();
-            }
-        })
-        .catch(err => console.error('Lỗi nạp file:', err));
-</script>
+   <!-- GUESTBOOK -->
+    <section class="guestbook-section" id="guestbook" data-aos="fade-up">
+        <div class="guestbook-container">
+            <h2 class="guestbook-title">Sổ Lưu Bút</h2>
+            <form id="wishForm" class="guestbook-form" action="https://docs.google.com/forms/d/e/1FAIpQLScXhlFeE965uwuL8ZcoyxBSNw4lFiAfdDuGvAzOW6ssQnOyww/formResponse" method="POST" target="wish_hidden_iframe">
+                <input type="text" name="entry.1580091473" class="input-field" placeholder="Nhập tên của bạn*" required>
+                <textarea name="entry.674583884" class="input-field textarea-field" placeholder="Nhập lời chúc của bạn*" required></textarea>
+                <button type="submit" class="btn-send-wish">Gửi lời chúc</button>
+            </form>
+        </div>
+    </section>
 
     <!-- KẾT THÚC TRANG WEB: LỊCH & CREDIT -->
 <section id="final-section">
